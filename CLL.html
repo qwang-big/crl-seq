@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<head>
+
+    <meta HTTP-EQUIV="X-UA-COMPATIBLE" CONTENT="IE=EmulateIE9" >
+    <script type="text/javascript" src="scripts/d3.min.js"></script>
+    <script type="text/javascript" src="scripts/queue.v1.min.js"></script>
+    <script type="text/javascript" src="scripts/d3.autocomplete.js"></script>
+
+<script language="JavaScript">
+
+    //Variable to hold autocomplete options
+    var keys, curMap, scale=1, vals=[], chrId=[], prom=[], promId=[], dId=[], dPC=[], enh=[], enhId = [];
+var code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+	var cols = ["#BEBEBE","#C5C5C5","#CBCBCB","#D2D2D2","#D8D8D8","#DFDFDF","#E5E5E5",
+"#ECECEC","#F2F2F2","#F9F9F9","#FFFFFF","#FFE6E6","#FFCCCC","#FFB3B3",
+"#FF9999","#FF8080","#FF6666","#FF4D4D","#FF3333","#FF1A1A","#FF0000"]
+	var col2 = ["#0000FF","#1A1AFF","#3333FF","#4D4DFF","#6666FF","#8080FF","#9999FF",
+"#B3B3FF","#CCCCFF","#E6E6FF","#FFFFFF","#FFE6E6","#FFCCCC","#FFB3B3",
+"#FF9999","#FF8080","#FF6666","#FF4D4D","#FF3333","#FF1A1A","#FF0000"]
+	function rep(c, n) {
+		ret = ''
+		for(i=0; i<n; i++)
+			ret += c
+		return ret
+	}
+	function explode(str) {
+		ret = ''
+		for(i=0; i<str.length; i++) {
+			c = str.charAt(i)
+			ret += (c>'9') ? c : rep(c1, c-1)
+			c1 = c
+		}
+		return ret
+	}
+	queue()
+	.defer(d3.csv, 'genes.csv')
+	.defer(d3.csv, "CLL-H3K27ac.csv")
+	.defer(d3.csv, "CLL-H3K27me3.csv")
+	.defer(d3.csv, "CLL-H3K36me3.csv")
+	.defer(d3.csv, "CLL-H3K4me1.csv")
+	.defer(d3.csv, "CLL-H3K4me3.csv")
+	.defer(d3.csv, "CLL-H3K9me3.csv")
+	.defer(d3.csv, "CLL-WGBS.csv")
+	.defer(d3.csv, 'CLLenh.csv')
+	.defer(d3.csv, 'CLLdpc.csv')
+	.defer(d3.csv, 'chrId.csv')
+	.await(drawMain);
+
+
+    function drawMain(error, genes, H3K27ac, H3K27me3, H3K36me3, H3K4me1, H3K4me3, H3K9me3, WGBS, enhancers, dpc, chrs) {
+	  enhInfo = enhancers
+	  for (var i in enhancers) {
+	      id = parseInt(enhancers[i].id)
+	      enhId.push(id)
+	      enh[id] = enhancers[i].name
+	  }
+	  for (var i in dpc) {
+	      dPC[parseInt(dpc[i].id)] = parseFloat(dpc[i].dPC)
+	  }
+	  for (var i in chrs) {
+	      chrId.push(parseInt(chrs[i].id))
+	  }
+	  for (var id in genes) {
+      tss = genes[id].c.split(';').map(Number)
+	    for (var i in tss) {
+	      promId.push(tss[i])
+        if (!(tss[i] in prom))
+        prom[tss[i]] = genes[id].name
+      }
+	  }
+    vals[0]=H3K27ac
+    vals[1]=H3K27me3
+    vals[2]=H3K36me3
+    vals[3]=H3K4me1
+    vals[4]=H3K4me3
+    vals[5]=H3K9me3
+    vals[6]=WGBS
+        keys=genes;
+        setAutocomplete();
+    }
+
+	function getMaxIdLessThan(d, v) {
+		j = 1
+		for(i in v) {
+			if (v[i]<d) j=v[i]
+			else return j
+		}
+		return j
+	}
+	function getReadableIndex(d, w) {
+		d = d-getMaxIdLessThan(d,chrId)
+		return (d*w/1000000).toFixed(2)
+	}
+	function zoomIn(d) {
+		scale=Math.min(20, scale*2)
+		heatmapImpl()
+		return false
+	}
+	function zoomOut(d) {
+		scale=Math.max( 1, scale/2)
+		heatmapImpl()
+		return false
+	}
+
+	function heatmap(d) {
+	  curMap = d
+	  heatmapImpl()
+	}
+
+	function legend(cols, id) {
+		var panel = d3.select(id)
+	  	panel.selectAll("*").remove()
+		panel.append('span').text('low')
+		var svg = panel.append('svg').attr("width", 5*cols.length).attr("height", 20)
+		for(i in cols)
+		svg.append('rect')
+		.attr('x',5*i)
+		.attr('y',0)
+		.attr('width',5)
+		.attr('height',20)
+		.attr('fill', cols[i] )
+		panel.append('span').text('high')
+	}
+  
+	function heatmapImpl() {
+	  var d = curMap
+	  var root = d3.select("#heatmap")
+    var tooltip = d3.select("#tooltip")
+    color = d3.scale.linear().domain([d3.min(dPC),0,d3.max(dPC)]).range(["#f00", "#fff", "#00f"]).nice()
+	  legend(cols, "#legend")
+	  legend(col2, "#legend2")
+	  root.selectAll("*").remove();
+	  var s = parseInt(d.s)
+	  var e = parseInt(d.e)
+	  //var tss = d.c.split(';').map(Number);
+	  var h = 20, H=10
+	  for(var i=0; i<vals.length; i++) {
+      H += h*(vals[i].length+3)
+    }
+	  var W = 1500
+	  var plot = root.append('svg').attr("width", W+150).attr("height", H)
+	  var p = e - s
+	  s += parseInt((p - p/scale)/2)
+	  e -= parseInt((p - p/scale)/2)
+	  p  = p/scale
+	  var w = Math.max(W/p, 1)
+	  //.data(d.enh.nodes).enter()
+	  var y=0, m1
+	  for(var i=0; i<vals.length; i++) {
+	  for(var k=0; k<vals[i].length; k++) {
+		nm=vals[i][k].name
+		m=nm.split('-')[0]
+		if (m!==m1) {
+		  m1 = m
+		  y += h
+		  plot.append('text')
+		  .attr('x',0)
+		  .attr('y',10+y)
+		  .text(getReadableIndex(s,2000)+"Mb")
+		  .style("font-size", "16px")
+		  plot.append('text')
+		  .attr('x',W)
+		  .attr('y',10+y)
+		  .text(getReadableIndex(e,2000)+"Mb")
+		  .style("font-size", "16px")
+		  y += h
+	    for(var j=s; j<e; j++) {
+		    if(enhId.indexOf(j) >=0)
+		      plot.append('a')
+		      .attr('xlink:href',"http://www.genecards.org/Search/Keyword?queryString="+enh[j])
+		      .attr('target',"_blank")
+		      .append('rect')
+          .datum(j)
+		      .attr('x',(j-s)*w)
+		      .attr('y',y)
+		      .attr('width',w)
+		      .attr('height',h)
+		      .attr('fill', j in dPC ? color(dPC[j]) : '#fff' )
+				  .style('stroke-width', 0.1)
+				  .style('stroke', '#000000')
+		      .on("mouseover", function(j){
+	          tooltip.html(enh[j]+": "+(dPC[j]!== undefined?dPC[j].toFixed(2):"undefined"))
+		        return tooltip.style("visibility", "visible");
+          })
+		      .on("mousemove", function(){
+		           return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px")
+		      })
+		      .on("mouseout", function(){
+		           return tooltip.style("visibility", "hidden")
+		      })
+		    if(promId.indexOf(j) >=0)
+		      plot.append('rect')
+          .datum(j)
+		      .attr('x',(j-s)*w)
+		      .attr('y',y+h)
+		      .attr('width',w)
+		      .attr('height',h)
+		      .attr('fill', j in dPC ? color(dPC[j]) : '#fff' )
+				  .style('stroke-width', 0.1)
+				  .style('stroke', '#000000')
+		      .on("mouseover", function(j){
+	            tooltip.html(prom[j]+": "+(dPC[j]!== undefined?dPC[j].toFixed(2):"undefined"))
+		          return tooltip.style("visibility", "visible");
+          })
+		      .on("mousemove", function(){
+		           return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px")
+		      })
+		      .on("mouseout", function(){
+		           return tooltip.style("visibility", "hidden")
+		      })
+	    	}
+		    plot.append('text').attr('x',W+2)
+		    .attr('y',y+h/2)
+		    .text("enhancer")
+		    .style("font-size", "16px")
+		    plot.append('text').attr('x',W+2)
+		    .attr('y',y+h*3/2)
+		    .text("promoter")
+		    .style("font-size", "16px")
+	  	  y += h
+		  }
+		  y += h
+	    for(var j=s; j<e; j++) {
+		    plot.append('rect')
+		    .attr('x',(j-s)*w)
+		    .attr('y',y)
+		    .attr('width',w)
+		    .attr('height',h)
+		    .attr('fill', nm.indexOf('WGBS')<0? cols[code.indexOf(vals[i][k].seq.charAt(j))] : col2[code.indexOf(vals[i][k].seq.charAt(j))])
+		  }
+		  plot.append('a')
+		  .attr('xlink:href',"http://epigenomegateway.wustl.edu/browser/?genome=hg19&datahub=https://raw.githubusercontent.com/qwang-big/crl-data/master/json/CLL.json")
+		  .attr('target',"_blank")
+		  .append('text').attr('x',W)
+		  .attr('y',10+y)
+		  .text(nm)
+		  .style("font-size", "16px")
+	    }
+	  }}
+    //Call back for when user selects an option
+    function onSelect(d) {
+        heatmap(d)
+    }
+
+    //Setup and render the autocomplete
+    function setAutocomplete() {
+        var mc = autocomplete(document.getElementById('test'))
+                .keys(keys)
+                .dataField("name")
+                .placeHolder("Type gene name here")
+                .width(960)
+                .height(500)
+                .onSelected(onSelect)
+                .render();
+    }
+
+</script>
+    <link rel="stylesheet" href="fonts/bariol/bariol.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
+
+</head>
+
+<body>
+
+<a href="javascript:void(0)" onclick="return zoomIn()">+&nbsp;</a>
+<a href="javascript:void(0)" onclick="return zoomOut()">&#8211;</a>
+<span id="legend"></span>
+<span id="legend2"></span>
+<div id="test" style="width:100%; height:100%;"></div>
+<div id="tooltip" style="position:absolute; z-index:10; visibility:hidden; font-size:16px"></div>
+<div id="heatmap" style="width:100%; height:100%;"></div>
+
+</body>
+
+</html>
+
