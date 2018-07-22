@@ -1,3 +1,12 @@
+### Set libraries and variables
+
+```{r}
+library(reshape2)
+library(stringr)
+options(stringsAsFactors = FALSE)
+nm = c("CLL", "CRC", "GLM", "MSC", "NPC", "PTC", "TSC", "MES")
+```
+
 ### Combine p-values from multiple tests
 
 Use data in Pvalues:

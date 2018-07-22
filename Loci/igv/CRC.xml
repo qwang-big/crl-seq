@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg19" hasGeneTrack="true" hasSequenceTrack="true" locus="chr8:127337998-130553680" path="/home/wangqi/b/CRC/CRC.xml" version="8">
+    <Resources>
+        <Resource path="/home/wangqi/b/CRC/A51319.CEMT_65.H3K27ac.156824.C6PRKANXX_8_ATACGG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50439.CEMT_50.H3K27ac.156305.C6J9VANXX_5_CAAAAG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50892.CEMT_64.H3K4me1.156813.C6PDTANXX_5_ATAATT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A55602.CEMT_72.H3K27ac.169904.C8ATRANXX_6_CTATAC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50434.CEMT_50.H3K4me1.155273.C75F7ANXX_1_ATCACG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A52085.CEMT_62.H3K4me1.169894.C8ATGANXX_4_ATCACG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50488.CEMT_57.H3K27ac.156305.C6J9VANXX_5_CCGCAA.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A52090.CEMT_62.H3K27ac.169903.C8ATRANXX_5_CAAAAG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A51333.CEMT_67.H3K27ac.156824.C6PRKANXX_8_CCGCAA.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50462.CEMT_54.H3K4me1.155273.C75F7ANXX_1_ATAATT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A51314.CEMT_65.H3K4me1.156813.C6PDTANXX_5_CCGTCC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50448.CEMT_52.H3K4me1.155273.C75F7ANXX_1_AACTTG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50624.CEMT_59.H3K27ac.156824.C6PRKANXX_8_CAAAAG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50483.CEMT_57.H3K4me1.155274.C75F7ANXX_2_AAACAT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50460.CEMT_53.H3K27ac.156305.C6J9VANXX_5_AAGACT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50876.CEMT_60.H3K27ac.156824.C6PRKANXX_8_CGATGT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50890.CEMT_63.H3K27ac.156824.C6PRKANXX_8_AAGACT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50619.CEMT_59.H3K4me1.156812.C6PDTANXX_4_ATCACG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50441.CEMT_51.H3K4me1.155273.C75F7ANXX_1_CTAGCT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50446.CEMT_51.H3K27ac.156305.C6J9VANXX_5_CGATGT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50476.CEMT_56.H3K4me1.155274.C75F7ANXX_2_GAGTGG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50467.CEMT_54.H3K27ac.156305.C6J9VANXX_5_TATAAT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50469.CEMT_55.H3K4me1.155274.C75F7ANXX_2_CCGTCC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50871.CEMT_60.H3K4me1.156812.C6PDTANXX_4_CTAGCT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50897.CEMT_64.H3K27ac.156824.C6PRKANXX_8_TATAAT.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A51326.CEMT_66.H3K27ac.156824.C6PRKANXX_8_GTAGAG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50481.CEMT_56.H3K27ac.156305.C6J9VANXX_5_GTAGAG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50455.CEMT_53.H3K4me1.155273.C75F7ANXX_1_TACAGC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50453.CEMT_52.H3K27ac.156305.C6J9VANXX_5_CTATAC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50883.CEMT_61.H3K27ac.156824.C6PRKANXX_8_CTATAC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50612.CEMT_58.H3K4me1.155274.C75F7ANXX_2_GCCTTA.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50885.CEMT_63.H3K4me1.156812.C6PDTANXX_4_TACAGC.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A51321.CEMT_66.H3K4me1.156813.C6PDTANXX_5_GAGTGG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50617.CEMT_58.H3K27ac.156305.C6J9VANXX_5_AAAGCA.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50878.CEMT_61.H3K4me1.156812.C6PDTANXX_4_AACTTG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A55597.CEMT_72.H3K4me1.merged.A55597_2_lanes_dupsFlagged.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A50474.CEMT_55.H3K27ac.156305.C6J9VANXX_5_ATACGG.q5.F1028.PET.wig.bw"/>
+        <Resource path="/home/wangqi/b/CRC/A51328.CEMT_67.H3K4me1.156813.C6PDTANXX_5_AAACAT.q5.F1028.PET.wig.bw"/>
+    </Resources>
+    <Panel height="677" name="DataPanel" width="1901">
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50439.CEMT_50.H3K27ac.156305.C6J9VANXX_5_CAAAAG.q5.F1028.PET.wig.bw" name="A50439.CEMT_50.H3K27ac.156305.C6J9VANXX_5_CAAAAG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50446.CEMT_51.H3K27ac.156305.C6J9VANXX_5_CGATGT.q5.F1028.PET.wig.bw" name="A50446.CEMT_51.H3K27ac.156305.C6J9VANXX_5_CGATGT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50453.CEMT_52.H3K27ac.156305.C6J9VANXX_5_CTATAC.q5.F1028.PET.wig.bw" name="A50453.CEMT_52.H3K27ac.156305.C6J9VANXX_5_CTATAC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50460.CEMT_53.H3K27ac.156305.C6J9VANXX_5_AAGACT.q5.F1028.PET.wig.bw" name="A50460.CEMT_53.H3K27ac.156305.C6J9VANXX_5_AAGACT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50467.CEMT_54.H3K27ac.156305.C6J9VANXX_5_TATAAT.q5.F1028.PET.wig.bw" name="A50467.CEMT_54.H3K27ac.156305.C6J9VANXX_5_TATAAT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50474.CEMT_55.H3K27ac.156305.C6J9VANXX_5_ATACGG.q5.F1028.PET.wig.bw" name="A50474.CEMT_55.H3K27ac.156305.C6J9VANXX_5_ATACGG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50481.CEMT_56.H3K27ac.156305.C6J9VANXX_5_GTAGAG.q5.F1028.PET.wig.bw" name="A50481.CEMT_56.H3K27ac.156305.C6J9VANXX_5_GTAGAG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50488.CEMT_57.H3K27ac.156305.C6J9VANXX_5_CCGCAA.q5.F1028.PET.wig.bw" name="A50488.CEMT_57.H3K27ac.156305.C6J9VANXX_5_CCGCAA.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50617.CEMT_58.H3K27ac.156305.C6J9VANXX_5_AAAGCA.q5.F1028.PET.wig.bw" name="A50617.CEMT_58.H3K27ac.156305.C6J9VANXX_5_AAAGCA.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50624.CEMT_59.H3K27ac.156824.C6PRKANXX_8_CAAAAG.q5.F1028.PET.wig.bw" name="A50624.CEMT_59.H3K27ac.156824.C6PRKANXX_8_CAAAAG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50876.CEMT_60.H3K27ac.156824.C6PRKANXX_8_CGATGT.q5.F1028.PET.wig.bw" name="A50876.CEMT_60.H3K27ac.156824.C6PRKANXX_8_CGATGT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50883.CEMT_61.H3K27ac.156824.C6PRKANXX_8_CTATAC.q5.F1028.PET.wig.bw" name="A50883.CEMT_61.H3K27ac.156824.C6PRKANXX_8_CTATAC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A55602.CEMT_72.H3K27ac.169904.C8ATRANXX_6_CTATAC.q5.F1028.PET.wig.bw" name="A55602.CEMT_72.H3K27ac.169904.C8ATRANXX_6_CTATAC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50434.CEMT_50.H3K4me1.155273.C75F7ANXX_1_ATCACG.q5.F1028.PET.wig.bw" name="A50434.CEMT_50.H3K4me1.155273.C75F7ANXX_1_ATCACG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50441.CEMT_51.H3K4me1.155273.C75F7ANXX_1_CTAGCT.q5.F1028.PET.wig.bw" name="A50441.CEMT_51.H3K4me1.155273.C75F7ANXX_1_CTAGCT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50448.CEMT_52.H3K4me1.155273.C75F7ANXX_1_AACTTG.q5.F1028.PET.wig.bw" name="A50448.CEMT_52.H3K4me1.155273.C75F7ANXX_1_AACTTG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50455.CEMT_53.H3K4me1.155273.C75F7ANXX_1_TACAGC.q5.F1028.PET.wig.bw" name="A50455.CEMT_53.H3K4me1.155273.C75F7ANXX_1_TACAGC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50462.CEMT_54.H3K4me1.155273.C75F7ANXX_1_ATAATT.q5.F1028.PET.wig.bw" name="A50462.CEMT_54.H3K4me1.155273.C75F7ANXX_1_ATAATT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50469.CEMT_55.H3K4me1.155274.C75F7ANXX_2_CCGTCC.q5.F1028.PET.wig.bw" name="A50469.CEMT_55.H3K4me1.155274.C75F7ANXX_2_CCGTCC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50476.CEMT_56.H3K4me1.155274.C75F7ANXX_2_GAGTGG.q5.F1028.PET.wig.bw" name="A50476.CEMT_56.H3K4me1.155274.C75F7ANXX_2_GAGTGG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50483.CEMT_57.H3K4me1.155274.C75F7ANXX_2_AAACAT.q5.F1028.PET.wig.bw" name="A50483.CEMT_57.H3K4me1.155274.C75F7ANXX_2_AAACAT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50612.CEMT_58.H3K4me1.155274.C75F7ANXX_2_GCCTTA.q5.F1028.PET.wig.bw" name="A50612.CEMT_58.H3K4me1.155274.C75F7ANXX_2_GCCTTA.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50619.CEMT_59.H3K4me1.156812.C6PDTANXX_4_ATCACG.q5.F1028.PET.wig.bw" name="A50619.CEMT_59.H3K4me1.156812.C6PDTANXX_4_ATCACG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50871.CEMT_60.H3K4me1.156812.C6PDTANXX_4_CTAGCT.q5.F1028.PET.wig.bw" name="A50871.CEMT_60.H3K4me1.156812.C6PDTANXX_4_CTAGCT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50878.CEMT_61.H3K4me1.156812.C6PDTANXX_4_AACTTG.q5.F1028.PET.wig.bw" name="A50878.CEMT_61.H3K4me1.156812.C6PDTANXX_4_AACTTG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A55597.CEMT_72.H3K4me1.merged.A55597_2_lanes_dupsFlagged.q5.F1028.PET.wig.bw" name="A55597.CEMT_72.H3K4me1.merged.A55597_2_lanes_dupsFlagged.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50890.CEMT_63.H3K27ac.156824.C6PRKANXX_8_AAGACT.q5.F1028.PET.wig.bw" name="A50890.CEMT_63.H3K27ac.156824.C6PRKANXX_8_AAGACT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50897.CEMT_64.H3K27ac.156824.C6PRKANXX_8_TATAAT.q5.F1028.PET.wig.bw" name="A50897.CEMT_64.H3K27ac.156824.C6PRKANXX_8_TATAAT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51319.CEMT_65.H3K27ac.156824.C6PRKANXX_8_ATACGG.q5.F1028.PET.wig.bw" name="A51319.CEMT_65.H3K27ac.156824.C6PRKANXX_8_ATACGG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51326.CEMT_66.H3K27ac.156824.C6PRKANXX_8_GTAGAG.q5.F1028.PET.wig.bw" name="A51326.CEMT_66.H3K27ac.156824.C6PRKANXX_8_GTAGAG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51333.CEMT_67.H3K27ac.156824.C6PRKANXX_8_CCGCAA.q5.F1028.PET.wig.bw" name="A51333.CEMT_67.H3K27ac.156824.C6PRKANXX_8_CCGCAA.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A52090.CEMT_62.H3K27ac.169903.C8ATRANXX_5_CAAAAG.q5.F1028.PET.wig.bw" name="A52090.CEMT_62.H3K27ac.169903.C8ATRANXX_5_CAAAAG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50885.CEMT_63.H3K4me1.156812.C6PDTANXX_4_TACAGC.q5.F1028.PET.wig.bw" name="A50885.CEMT_63.H3K4me1.156812.C6PDTANXX_4_TACAGC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A50892.CEMT_64.H3K4me1.156813.C6PDTANXX_5_ATAATT.q5.F1028.PET.wig.bw" name="A50892.CEMT_64.H3K4me1.156813.C6PDTANXX_5_ATAATT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51314.CEMT_65.H3K4me1.156813.C6PDTANXX_5_CCGTCC.q5.F1028.PET.wig.bw" name="A51314.CEMT_65.H3K4me1.156813.C6PDTANXX_5_CCGTCC.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51321.CEMT_66.H3K4me1.156813.C6PDTANXX_5_GAGTGG.q5.F1028.PET.wig.bw" name="A51321.CEMT_66.H3K4me1.156813.C6PDTANXX_5_GAGTGG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A51328.CEMT_67.H3K4me1.156813.C6PDTANXX_5_AAACAT.q5.F1028.PET.wig.bw" name="A51328.CEMT_67.H3K4me1.156813.C6PDTANXX_5_AAACAT.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="16" id="/home/wangqi/b/CRC/A52085.CEMT_62.H3K4me1.169894.C8ATGANXX_4_ATCACG.q5.F1028.PET.wig.bw" name="A52085.CEMT_62.H3K4me1.169894.C8ATGANXX_4_ATCACG.q5.F1028.PET.wig.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="max">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="100.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+    </Panel>
+    <Panel height="86" name="FeaturePanel" width="1901">
+        <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="Reference sequence" name="Reference sequence" sortable="false" visible="true"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" colorScale="ContinuousColorScale;0.0;423.0;255,255,255;0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="35" id="hg19_genes" name="RefSeq Genes" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="423.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+    </Panel>
+    <PanelLayout dividerFractions="0.8818181818181818"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
