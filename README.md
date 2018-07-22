@@ -82,3 +82,16 @@ Relationships of histone mark signals and dPC1
 ### Interpreting ranks
 
 
+### Genomic view of interested loci
+
+Differential epigenetic modified enhancers
+
+```{r}
+ggplot(gr, aes(Position, value, fill=Mark)) + geom_area(stat="identity", position="identity") + facet_grid(Track~.) + scale_fill_manual(values=c("#e41a1c","#377eb8","#4daf4a")) + scale_x_continuous(label=gpos) + scale_y_continuous(breaks=uq) + geom_vline(xintercept = c(172,372,1848,1850)) + xlab("chr8") + theme(panel.background=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank())
+```
+
+Heatmap view of oncogenes, tumor suppressor genes, and housekeeping genes
+
+```{r}
+```
+
