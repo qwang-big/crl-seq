@@ -1,6 +1,7 @@
 ### Set libraries and variables
 
 ```{r}
+library(ggplot2)
 library(reshape2)
 library(stringr)
 options(stringsAsFactors = FALSE)
@@ -93,5 +94,26 @@ ggplot(gr, aes(Position, value, fill=Mark)) + geom_area(stat="identity", positio
 Heatmap view of oncogenes, tumor suppressor genes, and housekeeping genes
 
 ```{r}
+nm=c("H3K27ac","H3K4me1","H3K4me3","H3K9me3","H3K27me3","H3K36me3")
+lbl=c(rep("OG",82),rep("TSG",63),rep("HKG",11))
+map=lapply(1:6,function(i)
+EnrichedHeatmap(normalizeToMatrix(gr[[i]], tss, value_column = "value", 
+     extend = 5000, mean_mode = "w0", w = 100), col = c("white", col[i]), name = nm[i], split = lbl, 
+     top_annotation = HeatmapAnnotation(lines = anno_enriched(gp = gpar(col = 2:4)),height=unit(2, "cm")), row_title_rot = 0,cluster_rows=FALSE))
+map[[1]]+map[[2]]+map[[3]]+map[[4]]+map[[5]]+map[[6]]
 ```
 
+Empirical cumulative distribution by ranking dPC1
+
+```{r}
+lapply(nm,function(f){
+svglite(paste0(f,'.svg'),3,3)
+x=read.csv(paste0(f,'rank.csv'))
+y=read.csv(paste0(f,'marker.csv'))
+df=data.frame(value=sort(match(y[,1],x[,1])),type='PromEnh')
+df=rbind(df,data.frame(value=sort(match(y[,1],x[,2])),type='PromOnly'))
+print(ggplot(df,aes(value, colour=type))+stat_ecdf(pad = FALSE)+ 
+	labs(x="Rank", y="ECDF") + theme(legend.position=c(0.8,0.2)))
+dev.off()
+})
+```
