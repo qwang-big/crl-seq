@@ -31,13 +31,10 @@ Correlations between histone marks differences and gene expression differences o
 Correlations between histone marks and time-coursed gene expression
 
 ```{r}
-svglite('NE-Exp.svg',9,9)
-par(mfrow = c(3,3), oma = c(2, 2, 0, 0), mar = c(2, 2, 2, 2), mgp = c(3, 1, 0), xpd = NA)
-lapply(c(2:5,8,9,1),function(d){
-plot(res[,d],type='l',xaxt = 'n', xlab=colnames(res)[d], ylab='Spearman r',cex.lab=1.5,cex.axis=1.5)
-abline(v=2,col='lightgrey',lty=2)
-axis(1, at=1:5, labels=rownames(res), cex.axis=1.5)
-})
+x=x[,c(2:5,8,9,1)]
+x=melt(as.matrix(x))
+svglite("NE-Exp.svg",5,5)
+ggplot(x, aes(Var1, value, group=1))+geom_line()+facet_wrap(~Var2, scales="free")+geom_vline(xintercept=2, linetype="dashed", col="red")+labs(x="",y="Spearman r")+theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 Correlations between dPCs and gene expression
 
@@ -80,6 +77,20 @@ Relationships of histone mark signals and dPC1
 ```{r}
 ```
 
+### Probability density functions of promoter-enhancer interactions
+
+```{r}
+m=read.table('pd')
+m=m[m[,1]<=2000000,]
+m=m[m[,2]>=3,]
+x=m[,1]
+y=m[,2]
+model=lm(log(y) ~ x)
+m[,2]=log(m[,2])
+svglite('GM12878.svg',3,3)
+ggplot(m,aes(V1, V2))+geom_point(size=1,col='#3288bd', alpha=0.2)+geom_abline(intercept=model$coefficients[1], slope=model$coefficients[2], color="red")+labs(title="GM12878",x="distance (bp)",y="count (log)")
+```
+
 ### Interpreting ranks
 
 
@@ -116,4 +127,19 @@ print(ggplot(df,aes(value, colour=type))+stat_ecdf(pad = FALSE)+
 	labs(x="Rank", y="ECDF") + theme(legend.position=c(0.8,0.2)))
 dev.off()
 })
+```
+
+Empirical cumulative distribution by ranking all dPCs
+
+```{r}
+df=melt(data.frame(lapply(getPCPromId(cll),function(d) sort(match(x,d)))))
+colnames(df)[1]="PC"
+df[,1]=as.character(df[,1])
+df1=df[grep("PC",df[,1]),]
+df2=df[grep("Prom",df[,1]),]
+df2[,1]=str_replace(df2[,1],"Prom","PC")
+svglite('auc.svg',3,3)
+ggplot()+stat_ecdf(data=df1,aes(value, colour=PC),pad = TRUE)+ 
+stat_ecdf(data=df2,aes(value, colour=PC),pad = FALSE, linetype="dotted")+
+	labs(x="Rank", y="ECDF") + theme(legend.position=c(0.8,0.2))
 ```
