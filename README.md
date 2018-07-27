@@ -23,10 +23,14 @@ print(ggplot(pv,aes(value, colour=Mark)) +  stat_ecdf(pad = FALSE) +
 Correlations between histone marks and gene expression (Exp)
 
 ```{r}
+ggplot(df, aes(Var1, value)) + geom_boxplot(aes(fill=type),outlier.size = NA) + labs(x="", y="Spearman r") + 
+    theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 Correlations between histone marks differences and gene expression differences of two groups (dExp)
 
 ```{r}
+ggplot(df, aes(Var1, value)) + geom_boxplot(aes(fill=Var1)) + labs(x="", y="Spearman r") + 
+    theme(legend.position="none",axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 Correlations between histone marks and time-coursed gene expression
 
@@ -48,6 +52,10 @@ ggplot(aes(y = value, x = variable, fill = variable), data = df) + geom_boxplot(
 Correlations between epigenetic marks in each group
 
 ```{r}
+svglite('cormarks.svg',10,2)
+ggplot(m, aes(cell, Var1, fill = value)) + geom_tile(colour = "white") + 
+  facet_grid(.~Var2) + scale_fill_gradient2(low="blue", high="red") +
+  theme(axis.text.x = element_text(angle = 90, size=7, vjust = 0.5))+labs(x="",y="")
 ```
 ### Interpreting dPCs
 
@@ -72,9 +80,11 @@ dev.off()
 }
 ```
 
-Relationships of histone mark signals and dPC1
+Relationships of histone mark signals and PC1
 
 ```{r}
+svglite('d.svg',5,4)
+ggplot(rint(df2), aes(x,y))+geom_point(aes(col=PC1),size=.1) + scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab" )+ scale_x_continuous(breaks=seq(0,40,20))+ scale_y_continuous(breaks=seq(0,40,20)) +facet_grid(type~mark)+labs(x="",y="")
 ```
 
 ### Weighting promoter-enhancer interactions
@@ -145,6 +155,35 @@ ggplot(df, aes(type))+geom_ribbon(aes(ymin = minPC, ymax = maxPC), fill = "light
 geom_ribbon(aes(ymin = minProm, ymax = maxProm), fill = "grey70", alpha=0.5) + geom_line(aes(y = Prom1), color="red", linetype="dashed")+ scale_x_continuous(breaks=1:7,label=dname) + labs(x="",y="AUC")
 ```
 
+AUCs of different PC transformation functions
+
+```{r}
+m=data.frame(id=rep(1:1000,6),value=unlist(fun(1000)),fun=rep(c("ReLU","Sigmoid","Logit","Inverse\nexponential", "Exponential", "Identity"),each=1000))
+ggplot(m, aes(x=id, y=value, colour=fun)) + geom_line()+theme(axis.text=element_blank(),axis.ticks=element_blank(),legend.position = "none")+labs(x="dPCs",y="Weights")
+levels(df$Functions) = levels(m$fun)
+svglite("funAUC.svg",4,3)
+ggplot(df, aes(x=Var2, y=value, colour=Functions)) + geom_point(size=2, alpha=0.6) + labs(x="", y="AUC")
+```
+
+Comparing positions of well known oncogenes with respect to PromEnh and PromOnly ranks
+
+```{r}
+x=read.table('~/rnk.xls',header=F)
+colnames(x)=c('gene','pe','po','cell')
+x[,2]=17888-x[,2]
+x[,3]=17888-x[,3]
+svglite("rnk.svg",10,3)
+ggplot(x, aes(x=pe, y=po)) +geom_point(aes(col=gene))+facet_grid(.~cell) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+labs(x="PromEnh", y="PromOnly")+geom_text(aes(label=gene), size=2.5,vjust=2)+theme(axis.ticks=element_blank(),legend.position="none")
+```
+
+Wilcoxon-Mann-Whitney test of OG/TSG/HKG ranks comparing to uniformly distributed ranks
+
+```{r}
+svglite("oncoRank.svg",3,3)
+ggplot(df, aes(Rank, type, fill = Pvalue)) + geom_tile(colour = "white") + 
+  facet_grid(Class~name,scales='free') + scale_fill_gradient2(low="white", high="red", midpoint = 0.05) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))+labs(x="",y="")
+```
 ### Genomic view of interested loci
 
 Differential epigenetic modified enhancers
