@@ -5,7 +5,26 @@ library(ggplot2)
 library(reshape2)
 library(stringr)
 options(stringsAsFactors = FALSE)
+bocx=function(x,lam=2/11) (x^lam - 1)/lam
+fisherp=function(x) pchisq(-2 * sum(log(x)),df=2*length(x),lower=FALSE)
 nm = c("CLL", "CRC", "GLM", "MSC", "NPC", "PTC", "TSC", "MES")
+```
+
+### Data validity
+
+Distribution densities
+
+```{r}
+library(quantro)
+load(paste0(s,'.hg19.rda'))
+data=data*1000/abs(bed[,3]-bed[,2])
+data=log(data+1)
+mark=str_extract(meta$file,"H3K\\w+|WGB|frac|Input")
+mark[mark=='WGB' | mark=='frac']='WGBS'
+mark=as.factor(mark)
+svglite(paste0(s,'.svg'),5,5)
+matdensity(data,mark,main=s,xlab="",ylab="")
+legend('topright', levels(mark), col = RColorBrewer::brewer.pal(8,"Dark2"), lty = 1, lwd = 3)
 ```
 
 ### Combine p-values from multiple tests
@@ -29,8 +48,9 @@ ggplot(df, aes(Var1, value)) + geom_boxplot(aes(fill=type),outlier.size = NA) + 
 Correlations between histone marks differences and gene expression differences of two groups (dExp)
 
 ```{r}
-ggplot(df, aes(Var1, value)) + geom_boxplot(aes(fill=Var1)) + labs(x="", y="Spearman r") + 
-    theme(legend.position="none",axis.text.x = element_text(angle = 30, hjust = 1))
+svglite("dExp.svg",3,3)
+ggplot(df, aes(Mark, value)) + geom_hline(yintercept=0, col='red',linetype='dashed') + geom_point(aes(col=Differences), size=2, alpha=0.6) + labs(x="", y="Spearman r") + 
+    theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 Correlations between histone marks and time-coursed gene expression
 
@@ -71,12 +91,8 @@ print(ggplot(pcvar, aes(x=PC, y=value, colour=Type)) + geom_point(size=2) + labs
 Loadings of matrix D (observed differences)
 
 ```{r}
-plotD = function (Dobs, labels, f='d') {
-pc=prcomp(Dobs)$rotation
-df=do.call("rbind",lapply(1:ncol(Dobs),function(i) data.frame(Loadings=pc[,i], Mark = labels, PC=i)))
-svglite(paste0(f,'.svg'),3,3)
-print(ggplot(df, aes(x=PC, y=Loadings, colour=Mark)) + geom_point(size=2))
-dev.off()
+svglite('d2.svg',4,3)
+ggplot(df, aes(x=Mark, y=Loadings, fill=Mark)) + geom_bar(stat='identity')+facet_grid(PC~type) +coord_flip()+theme(legend.position="none",axis.text.x = element_text(angle = 90, vjust = 0.5))
 }
 ```
 
