@@ -10,6 +10,42 @@ fisherp=function(x) pchisq(-2 * sum(log(x)),df=2*length(x),lower=FALSE)
 nm = c("CLL", "CRC", "GLM", "MSC", "NPC", "PTC", "TSC", "MES")
 ```
 
+### Setup theme for publication
+
+```{r}
+tsize <- 9; tsize2 <- 8; pchsize <- 1; lkey <- 3.5 # lsize <- 0.3
+theme_set(theme_bw())
+theme_update(panel.grid.minor = element_line(colour = NA),
+panel.grid.major = element_line(colour = NA))
+
+#theme_set(theme_bw(base_size=22))
+theme_set(theme_bw())
+theme_update(
+plot.margin = unit(c(0.4,0.5,0.1,0), "lines"),
+panel.spacing = unit(0.25, "lines"),
+panel.grid.minor = element_line(colour = NA),
+panel.grid.major = element_line(colour = NA),
+panel.background=element_rect(fill = NA, colour = "black"),
+panel.border = element_rect(colour="black", size=0),
+plot.title = element_text(size = tsize, vjust = 0.5, hjust=0.5),
+axis.title.x = element_text(size = tsize, vjust = 0.35),
+axis.title.y = element_text(size = tsize, hjust = 0.5, vjust = 0.4, angle = 90),
+axis.text.x = element_text(size = tsize2, margin=margin(0,0,0.1,0,"mm")),
+axis.text.y = element_text(size = tsize2, margin=margin(0,0,0,0.1,"mm")),
+axis.ticks.length=unit(1, units="mm"),
+#axis.line = element_segment(colour = ‘black’, size = 1),
+legend.key=element_rect(colour = NA),
+legend.title=element_text(size = tsize2-1, hjust = 0),
+legend.text=element_text(size = tsize2-1, hjust = 0),
+legend.background=element_rect(colour=NA, size=0),
+legend.spacing = unit(0, "mm"),
+legend.key.size=unit(lkey,"mm"),
+legend.key.width = unit(lkey*1.5, "mm"),
+strip.background = element_rect(fill = NA, linetype=NULL, size=0, colour="white"),
+strip.text.x = element_text(size=tsize, vjust=0.7, hjust= 0.5)
+)
+```
+
 ### Data validity
 
 Distribution densities
@@ -189,7 +225,7 @@ colnames(x)=c('gene','pe','po','cell')
 x[,2]=17888-x[,2]
 x[,3]=17888-x[,3]
 svglite("rnk.svg",10,3)
-ggplot(x, aes(x=pe, y=po)) +geom_point(aes(col=gene))+facet_grid(.~cell) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+labs(x="PromEnh", y="PromOnly")+geom_text(aes(label=gene), size=2.5,vjust=2)+theme(axis.ticks=element_blank(),legend.position="none")
+ggplot(x, aes(x=pe, y=po)) +geom_point(aes(col=gene))+facet_wrap(~cell) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+labs(x="PromEnh", y="PromOnly")+geom_text(aes(label=gene), size=2.5,vjust=2)+theme(axis.ticks=element_blank(),legend.position="none")
 ```
 
 Wilcoxon-Mann-Whitney test of OG/TSG/HKG ranks comparing to uniformly distributed ranks
