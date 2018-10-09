@@ -236,6 +236,14 @@ ggplot(df, aes(Rank, type, fill = Pvalue)) + geom_tile(colour = "white") +
   facet_grid(Class~name,scales='free') + scale_fill_gradient2(low="white", high="red", midpoint = 0.05) +
   theme(axis.text.x = element_text(angle = 30, hjust = 1))+labs(x="",y="")
 ```
+
+Rank and p-values of tissue specificity of PromEnh and PromOnly ranks
+
+```{r}
+svglite("tissueRank.svg",6,6)
+ggplot(m, aes(variable, ts, fill = score)) + geom_tile(colour = "white") + geom_text(aes(label=rank)) + facet_grid(fs~.,scales='free') + scale_fill_gradient2(low="white", high="red") +
+  labs(x="",y="")
+```
 ### Genomic view of interested loci
 
 Differential epigenetic modified enhancers
