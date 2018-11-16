@@ -86,6 +86,20 @@ ggplot(df, aes(Rank, type, fill = Pvalue)) + geom_tile(colour = "white") +
   facet_grid(Class~name,scales='free') + scale_fill_gradient2(low="white", high="red",name="-logP") +
   theme(axis.text.x = element_text(angle = 30, hjust = 1))+labs(x="",y="")
 ```
+### Frequency of oncogenes
+```{r}
+vg=function(gs) unlist(lapply(gs,function(g) V(g)$name))
+lf=function(x) length(which(x))/length(x)
+sp=function(x) {x=melt(x);colnames(x)=c("type","perc","value");x$type=nm[cl=="Cancer"][x$type];x}
+dname=function(i) seq(10,50,5)[i]
+df=do.call("rbind",lapply(which(cl=="Cancer"), function(i){
+c(unlist(lapply(seq(0.9,0.5,-0.05),function(w) lf(vg(exportMultinets(edgeRank(data[[i]]$pg$PC1,hprd,w), 15)) %in% og))),
+unlist(lapply(seq(1788,8944,894),function(w) lf(data[[i]]$pg$PC1[1:w] %in% og))))
+}))
+ggplot() + geom_line(data=sp(df[,1:9]), aes(perc, value, col=type), size=1) +
+  geom_line(data=sp(df[,10:18]), aes(perc, value, col=type), linetype="dashed", size=1) +
+  labs(x="Top rank %",y="Frequency") +scale_x_continuous(breaks=seq(1,9,2),label=dname)
+```
 ### Rewiring
 ```{r}
 k=c(3,4,5,7,10,11,12,13)
