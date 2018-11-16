@@ -1,5 +1,5 @@
 
-#Plot for figures in the publication
+# Plot figures for the publication
 ### Setup theme for publication
 
 ```{r}
@@ -20,36 +20,63 @@ fisherp=function(x) pchisq(-2 * sum(log(x)),df=2*length(x),lower=FALSE)
 data=list(all, aml, cll, crc, glm, mcl, mcll, mes, mm, msc, npc, ptc, tsc)
 nm = c("ALL", "AML", "CLL", "CRC", "LGG", "MCL", "mCLL", "MES", "MM", "MSC", "NPC", "PTC", "TSC")
 cl = c("Cancer", "Cancer", "Cancer", "Cancer", "Cancer", "Cancer", "Cancer", "Development", "Cancer", "Development", "Development", "Cancer", "Development")
-df = do.call("rbind",lapply(1:13, function(i) cbind(melt(prcomp(data[[i]]$Dobs)$rotation),nm[i])))
-colnames(df)=c("Mark","PC","Loadings","type")
+```
+### PC composition
+```{r}
+lbl = list("NPC"=c('DNAMeth','H3K27ac','H3K27me3','H3K36me3','H3K4me1','H3K4me3','H3K9ac','H3K9me3'),
+"MSC"=c('DNAMeth','H3K27ac','H3K27me3','H3K36me3','H3K4me1','H3K4me3','H3K9ac','H3K9me3'),
+"MES"=c('DNAMeth','H3K27ac','H3K27me3','H3K36me3','H3K4me1','H3K4me3','H3K9ac','H3K9me3'),
+"TSC"=c('DNAMeth','H3K27ac','H3K27me3','H3K36me3','H3K4me1','H3K4me3','H3K9ac','H3K9me3'),
+"CLL"=c('H3K4me1','H3K4me3','H3K9me3','H3K27me3','H3K36me3','H3K27ac','Input','DNAMeth'),
+"PTC"=c('H3K4me1','H3K4me3','H3K9me3','H3K27me3','H3K36me3','H3K27ac','Input','DNAMeth'),
+"CRC"=c('H3K4me1','H3K4me3','H3K9me3','H3K27me3','H3K36me3','H3K27ac','Input','DNAMeth'),
+"AML"=c("H3K27ac","H3K27me3","H3K36me3","H3K4me1","H3K4me3","H3K9me3","DNAMeth"),
+"ALL"=c("H3K27ac","H3K27me3","H3K36me3","H3K4me1","H3K4me3","H3K9me3","DNAMeth"),
+"mCLL"=c("H3K27ac","H3K27me3","H3K36me3","H3K4me1","H3K4me3","H3K9me3","DNAMeth"),
+"MM"=c("H3K27ac","H3K27me3","H3K36me3","H3K4me1","H3K4me3","H3K9me3","DNAMeth"),
+"MCL"=c("H3K27ac","H3K27me3","H3K36me3","H3K4me1","H3K4me3","H3K9me3","DNAMeth"),
+"LGG"=c('H3K4me1','H3K4me3','H3K9me3','H3K27me3','H3K36me3','H3K27ac','Input','DNAMeth','H3K9ac'))
+j = list("NPC"=c(1,2,3,5,6),
+"MSC"=c(1,2,3,5,6),
+"MES"=c(1,2,3,5,6),
+"TSC"=c(1,2,3,5,6),
+"CLL"=c(1,2,6,8),
+"PTC"=c(1,2,4,6,8),
+"CRC"=c(1,2,4,6,8),
+"AML"=1:6,
+"ALL"=1:6,
+"mCLL"=1:6,
+"MM"=1:6,
+"MCL"=1:6,
+"LGG"=c(1,2,4,6))
+df = do.call("rbind",lapply(1:13, function(i) data.frame(melt(prcomp(data[[i]]$Dobs)$rotation),rep(lbl[[nm[i]]][j[[nm[i]]]],ncol(data[[i]]$Dobs)),nm[i])))
+colnames(df)=c("id","PC","Loadings","Mark","type")
 ggplot(df, aes(x=Mark, y=Loadings, fill=Mark)) + geom_bar(stat='identity')+facet_grid(PC~type) +coord_flip()+theme(legend.position="none",axis.text.x = element_text(angle = 90, vjust = 0.5))
 ```
-###PC variance
+### PC variance
 ```{r}
 df = do.call("rbind",lapply(1:13, function(i) cbind(melt(data[[i]]$proj),nm[i])))
 df = df[!is.na(df[,3]),]
 df = df[df[,1]=="percent_var",2:4]
 colnames(df)=c("PC","var","type")
-svglite(paste0('PCvar.svg'),3,3)
-ggplot(df, aes(x=PC, y=var, colour=type)) + geom_point(size=2) + labs(x="", y="Variance") + scale_y_continuous(labels = scales::percent) + theme(legend.position=c(0.85,0.7))
+ggplot(df, aes(x=PC, y=var, colour=type)) + geom_point(size=2) + labs(x="PC", y="Variance") + scale_y_continuous(labels = scales::percent) + theme(legend.position=c(0.85,0.56))
 ```
-###ECDF
+### ECDF
 ```{r}
 markers$mCLL = markers$CLL
-df=lapply(c(3,4,5,7,10,11,12,13), function(i){
+df=do.call("rbind",lapply(c(3,4,5,7,10,11,12,13), function(i){
 df=data.frame(value=sort(match(markers[[nm[i]]],data[[i]]$pg$PC1)),type='Irene')
 df=rbind(df,data.frame(value=sort(match(markers[[nm[i]]],data[[i]]$pg$prom)),type='Promoter'))
 cbind(df,case=nm[i])
-})
-df=do.call("rbind",df)
+}))
 ggplot(df,aes(value, colour=type))+stat_ecdf(pad = FALSE)+labs(x="Rank", y="ECDF") +facet_wrap(.~case)+ theme(legend.position=c(0.8,0.2))
 ```
-###Oncogenes
+### Oncogenes
 ```{r}
 wtest = function(m,n,l=17888) -log(wilcox.test(sort(match(n,m)), seq(1,l,ceiling(l/length(n))))$p.value)
-og=c("ABL1","ABL2","AKT1","AKT2","ATF1","BCL11A","BCL2","BCL3","BCL6","BCR","BRAF","CARD11","CBLB","CBLC","CCND1","CCND2","CCND3","CDX2","CTNNB1","DDB2","DDIT3","DDX6","DEK","EGFR","ELK4","ERBB2","ETV4","ETV6","EWSR1","FEV","FGFR1","FGFR1OP","FGFR2","FUS","GOLGA5","GOPC","HMGA1","HMGA2","HRAS","IRF4","JUN","KIT","KMT2A","KRAS","LCK","LMO2","MAF","MAFB","MAML2","MDM2","MECOM","MET","MITF","MPL","MYB","MYC","MYCL","MYCN","NCOA4","NFKB2","NRAS","NTRK1","NUP214","PAX8","PDGFB","PIK3CA","PIM1","PLAG1","PPARG","PTPN11","RAF1","REL","RET","ROS1","SMO","SS18","TCL1A","TET2","TFG","TLX1","TPR","USP6")
-tsg=c("APC","ARHGEF12","ATM","BCL11B","BLM","BMPR1A","BRCA1","BRCA2","CARS","CBFA2T3","CDH1","CDH11","CDK6","CDKN2C","CEBPA","CHEK2","CREB1","CREBBP","CYLD","DDX5","EXT1","EXT2","FBXW7","FH","FLT3","FOXP1","GPC3","IDH1","IL2","JAK2","MAP2K4","MDM4","MEN1","MLH1","MSH2","NF1","NF2","NOTCH1","NPM1","NR4A3","NUP98","PALB2","PML","PTEN","RB1","RUNX1","SDHB","SDHD","SMARCA4","SMARCB1","SOCS1","STK11","SUFU","SUZ12","SYK","TCF3","TNFAIP3","TP53","TSC1","TSC2","VHL","WRN","WT1")
-hkg=c("C1orf43","CHMP2A","EMC7","GPI","PSMB2","PSMB4","RAB7A","REEP5","SNRPD3","VCP","VPS29")
+og =markers$OG
+tsg=markers$TSG
+hkg=markers$HKG
 tn=c("OG","TSG","HKG")
 df=do.call("rbind",lapply(1:13, function(i) {
 rbind(data.frame(Pvalue=c(wtest(data[[i]]$pg$PC1,og),wtest(data[[i]]$pg$PC1,tsg),wtest(data[[i]]$pg$PC1,hkg)), name=tn, type=nm[i], Class=cl[i], Rank="Irene"),
@@ -59,7 +86,7 @@ ggplot(df, aes(Rank, type, fill = Pvalue)) + geom_tile(colour = "white") +
   facet_grid(Class~name,scales='free') + scale_fill_gradient2(low="white", high="red",name="-logP") +
   theme(axis.text.x = element_text(angle = 30, hjust = 1))+labs(x="",y="")
 ```
-###Rewiring
+### Rewiring
 ```{r}
 k=c(3,4,5,7,10,11,12,13)
 df=do.call("rbind",lapply(k, function(i){
@@ -68,12 +95,20 @@ quantile(unlist(lapply(1:100, function(d) getAUC(pageRank(data[[i]]$gr[,c("id","
 df=cbind(df,do.call("rbind",lapply(k, function(i){data[[i]]$auc[c("PC1","prom")]})))
 colnames(df)=c(paste0("q",0:4),"Irene","Promoter")
 dname=function(i) nm[k[i]]
-ggplot(data.frame(df,type=1:8), aes(type))+geom_ribbon(aes(ymin = q1, ymax = q3), fill = "grey70") + geom_line(aes(y = Irene), color="red")+ geom_line(aes(y = Promoter), color="red", linetype="dashed")+ scale_x_continuous(breaks=1:8,label=dname) + labs(x="",y="AUC")
+ggplot(data.frame(df,type=1:8), aes(type))+geom_ribbon(aes(ymin = q1, ymax = q3), fill = "grey70") + geom_line(aes(y = Irene), color="red")+ geom_line(aes(y = Promoter), color="red", linetype="dashed")+ scale_x_continuous(breaks=1:8,label=dname) +theme(axis.text.x = element_text(angle = 30, hjust = 1))+ labs(x="",y="AUC")
 write.table(df,file="irene-supp/AUC/rnd.txt",sep="\t",quote=F)
-
-
 ```
-#Plot for figures in the dissertation
+### Well-known oncogenes
+
+```{r}
+genes=c("BRAF","EGFR","KRAS","MYC","PAX5","PTEN","TP53")
+df=do.call("rbind",lapply(c(1:7,9,12), function(i){
+df=data.frame(Irene=match(genes,rev(data[[i]]$pg$PC1)),Promoter=match(genes,rev(data[[i]]$pg$prom)),gene=genes,type=nm[i])
+}))
+ggplot(df, aes(x=Irene, y=Promoter)) +geom_point(aes(col=gene))+facet_wrap(~type) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+geom_text(aes(label=gene), size=2.5,vjust=1)+theme(axis.ticks=element_blank(),legend.position="none")
+```
+
+# Plot figures for the dissertation
 ### Alternative theme
 
 ```{r}
