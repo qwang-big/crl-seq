@@ -1,0 +1,180 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage{cite} 
+\usepackage{hyperref}
+\usepackage{booktabs}
+\date{}
+
+\begin{document}
+\title{Irene: Integrative Ranking with Epigenetic Network of Enhancers}
+\author[1,3]{Qi Wang}
+\author[2]{Yonghe Wu}
+\author[3,4]{Roland Eils}
+\author[1]{Carl Herrmann}
+\affil[1]{Faculty of Biosciences, Heidelberg University, Heidelberg, Germany}
+\affil[2]{Division of Molecular Genetics, German Cancer Research Center (DKFZ), Heidelberg, Germany}
+\affil[3]{Division of Theoretical Bioinformatics, German Cancer Research Center (DKFZ), Heidelberg, Germany}
+\affil[4]{Digital Health Center, Berlin Institute of Health (BIH) and Charité, Berlin, Germany}
+
+\maketitle
+
+\renewcommand{\thetable}{S\arabic{table}}
+
+\begin{table}[!htb]
+\centering
+\caption{Test cases for phenotypic studies.}
+\label{table:dataset}
+\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}}
+\toprule
+Tests & Controls & Num.* & Data** & Accession codes/src \\
+\midrule                  
+Neural Progenitor Cells (NPC) & Embryonic stem cells & 8 & 61 & GSE16256 \\
+Mesenchymal stem cells (MSC) & Embryonic stem cells & 8 & 51 & GSE16256 \\
+Trophoblast stem cells (TSC) & Embryonic stem cells & 8 & 64 & GSE16256 \\
+Chronic lymphocytic leukemia (CLL) & B cells from healthy cases & 7 & 121 & CEEHRC \\
+Lower grade glioma (LGG) & Hippocampus middle, Inferior temporal lobe, Mid 
+frontal lobe & 7 & 100 & CEEHRC, GSE17312 \\
+Colorectal cancer (CRC) & Sigmoid colon from healthy cases & 7 & 154 & CEEHRC \\
+Papillary thyroid cancer (PTC) & Thyroid from healthy cases & 7 & 54 & CEEHRC \\
+Acute Lymphoblastic Leukaemia (ALL) & B cells from healthy cases & 7 & 61 & Blueprint \\
+Acute Myeloid Leukaemia (AML) & B cells from healthy cases & 7 & 96 & Blueprint \\
+Multiple Myeloma (MM) & B cells from healthy cases & 7 & 59 & Blueprint \\
+Mantle Cell Lymphoma (MCL) & B cells from healthy cases & 7 & 68 & Blueprint \\
+Chronic Lymphocytic Leukemia (mutated) (mCLL) & B cells from healthy cases & 7 & 67 & Blueprint \\
+\bottomrule
+\end{tabular}
+\begin{flushleft} * Number of epigenetic marks.
+
+** Number of epigenetic datasets.
+\end{flushleft}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\caption{Oncogenes, tumor suppressor genes, and housekeeping genes used in the analysis}
+\label{table:ogtsghkg}
+\begin{tabular}{llllll}
+\toprule
+\multicolumn{6}{l}{{\bf Oncogenes}} \\ 
+\hline
+ABL1 & ABL2 & AKT1 & AKT2 & ATF1 & BCL11A \\
+BCL2 & BCL3 & BCL6 & BCR & BRAF & CARD11 \\
+CBLB & CBLC & CCND1 & CCND2 & CCND3 & CDX2 \\
+CTNNB1 & DDB2 & DDIT3 & DDX6 & DEK & EGFR \\
+ELK4 & ERBB2 & ETV4 & ETV6 & EWSR1 & FEV \\
+FGFR1 & FGFR1OP & FGFR2 & FUS & GOLGA5 & GOPC \\
+HMGA1 & HMGA2 & HRAS & IRF4 & JUN & KIT \\
+KMT2A & KRAS & LCK & LMO2 & MAF & MAFB \\
+MAML2 & MDM2 & MECOM & MET & MITF & MPL \\
+MYB & MYC & MYCL & MYCN & NCOA4 & NFKB2 \\
+NRAS & NTRK1 & NUP214 & PAX8 & PDGFB & PIK3CA \\
+PIM1 & PLAG1 & PPARG & PTPN11 & RAF1 & REL \\
+RET & ROS1 & SMO & SS18 & TCL1A & TET2 \\
+TFG & TLX1 & TPR & USP6 & & \\
+\hline
+\multicolumn{6}{l}{{\bf Tumor suppressor genes}} \\ 
+\hline
+APC & ARHGEF12 & ATM & BCL11B & BLM & BMPR1A \\
+BRCA1 & BRCA2 & CARS & CBFA2T3 & CDH1 & CDH11 \\
+CDK6 & CDKN2C & CEBPA & CHEK2 & CREB1 & CREBBP \\
+CYLD & DDX5 & EXT1 & EXT2 & FBXW7 & FH \\
+FLT3 & FOXP1 & GPC3 & IDH1 & IL2 & JAK2 \\
+MAP2K4 & MDM4 & MEN1 & MLH1 & MSH2 & NF1 \\
+NF2 & NOTCH1 & NPM1 & NR4A3 & NUP98 & PALB2 \\
+PML & PTEN & RB1 & RUNX1 & SDHB & SDHD \\
+SMARCA4 & SMARCB1 & SOCS1 & STK11 & SUFU & SUZ12 \\
+SYK & TCF3 & TNFAIP3 & TP53 & TSC1 & TSC2 \\
+VHL & WRN & WT1 & & & \\
+\hline
+\multicolumn{6}{l}{{\bf Housekeeping genes}} \\ 
+\hline
+C1orf43 & CHMP2A & EMC7 & GPI & PSMB2 & PSMB4 \\
+RAB7A & REEP5 & SNRPD3 & VCP & VPS29 & \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\small
+\caption{Stem cell differentiation marker genes}
+\label{table:spscmarkers}
+\begin{tabular}{llll}
+\toprule
+\multicolumn{4}{l}{{\bf Neural Progenitor Cells (NPC)}} \\ \hline
+ABCG2\cite{Islam2005} & ASCL1\cite{Castro2011} & BMI1\cite{Molofsky2003} & CD133\cite{Peh2009} \\
+CXCR4\cite{Luo2002} & FOXA2\cite{Bang2015, Kirkeby2012} & FOXO1\cite{Kim2015} & FZD9\cite{Fathi2011} \\
+GAP43\cite{Livesey2004, Zhao2011} & GFAP\cite{Doetsch1999, Middeldorp2010} & GLUT1\cite{Maurer2006} & HES1\cite{Kobayashi2010, Shimojo2011} \\
+MAP2\cite{Kirkeby2012} & MSI1\cite{Kaneko2009} & NES\cite{Murdoch2008} & NEUROD1\cite{Steiner2008} \\
+NFIX\cite{Heng2012} & NOTCH1\cite{Yang2004, Cui2004} & NTN1\cite{Dominici2017} & OTX2\cite{Li2005} \\
+PAX3\cite{Basch2006, Blake2014} & PAX5\cite{Blake2014} & PAX6\cite{Kirkeby2012, Pankratz2007, Blake2014} & PAX7\cite{Blake2014} \\
+PAX8\cite{Blake2014} & S100B\cite{Vives2003} & SMARCA4\cite{Matsumoto2006} & SOX1\cite{Venere2012, Pankratz2007} \\
+SOX11\cite{Bergsland2006} & SOX2\cite{Graham2003, Ellis2004} & SOX3\cite{Wang2006} & SOX4\cite{Bergsland2006} \\
+SOX9\cite{Scott2010} & SYP\cite{Kirkeby2012} & TCF12\cite{Uittenbogaard2002} & VIM\cite{Nakagawa2004} \\ \hline
+\multicolumn{4}{l}{{\bf Mesenchymal Stem Cells (MSC)}} \\ \hline
+ALCAM\cite{Arai2002} & ANPEP\cite{Frobel2014} & CD44\cite{Frobel2014, Obara2016} & CD70\cite{Lin2013} \\
+DLK1\cite{Abdallah2007, Abdallah2004} & ENG\cite{Lin2013, Obara2016} & ETV1\cite{Kubo2009} & ETV5\cite{Kubo2009} \\
+FOXP1\cite{Kubo2009} & GATA4\cite{Almalki2016} & GATA6\cite{Kubo2009} & HMGA2\cite{Kubo2009} \\
+ITGA4\cite{Cui2017} & ITGB1\cite{Obara2016} & MYOD1\cite{Almalki2016} & NANOG\cite{Ball2012, Frobel2014} \\
+NCAM1\cite{Frobel2014} & NT5E\cite{Frobel2014} & OCT4\cite{Ball2012} & PDGFRA\cite{Ball2012, Farahani2015} \\
+POU5F1\cite{Han2014, Matic2016} & PPARG\cite{Almalki2016} & RUNX2\cite{Frobel2014, Almalki2016} & SIM2\cite{Kubo2009} \\
+SOX11\cite{Kubo2009} & SOX2\cite{Park2012, Han2014, Matic2016} & SOX4\cite{Tiwari2013} & SOX9\cite{Frobel2014, Almalki2016} \\
+SPARC\cite{Frobel2014, Bradshaw2001} & THY1\cite{Lin2013, Obara2016} & VIM\cite{Ivaska2007} & \\ \hline
+\multicolumn{4}{l}{{\bf Trophoblast Stem Cells (TSC)}} \\ \hline
+ARID3A\cite{Rhee2017} & BMP4\cite{Kubaczka2014} & CD9\cite{Douglas2009} & CDH1\cite{Ohinata2014} \\
+CDX1\cite{Peiffer2007} & CDX2\cite{Strumpf2005, Peiffer2007, Chen2013, Kubaczka2014} & CGA\cite{Li2013, Schulz2008, Peiffer2007} & CGB\cite{Li2013, Schulz2008, Douglas2009} \\
+ELF5\cite{Lee2016, Ohinata2014} & EOMES\cite{Ohinata2014, Li2013, Kidder2010, Kubaczka2014} & ESRRB\cite{Ohinata2014} & ETS2\cite{Kubaczka2014} \\
+FGF4\cite{Tanaka1998} & FGFR2\cite{Haffner-Krausz1999, Ohinata2014, Kubaczka2014} & FURIN\cite{Kubaczka2014} & GATA2\cite{Schulz2008, Peiffer2007} \\
+GATA3\cite{Kubaczka2014} & GCM1\cite{Schulz2008} & HAND1\cite{Peiffer2007} & ID2\cite{Selesniemi2005, Selesniemi2016} \\
+IGFBP3\cite{Schulz2008} & KRT7\cite{Schulz2008, Douglas2009} & MMP9\cite{Schulz2008} & MSX2\cite{Schulz2008, Liang2016} \\
+SMARCA4\cite{Kidder2010} & SOX2\cite{Ohinata2014, Schulz2008} & TEAD4\cite{Yagi2007} & TFAP2C\cite{Kubaczka2014} \\
+TFAP2C\cite{Ohinata2014, Kidder2010, Kubaczka2014} &  &  & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\small
+\caption{Cancer marker genes}
+\label{table:spcancermarkers}
+\begin{tabular}{ll}
+\toprule
+\multicolumn{2}{l}{{\bf Chronic Lymphocytic Leukemia (CLL)}}\\ \hline
+ARID1A (2.41  \cite{Puente2015, Rubio-Perez2015}) & ATM (9  \cite{Wang2011}, 4.14  \cite{Rubio-Perez2015, Guarini2012}) \\ BCOR (1.72  \cite{Landau2013}) & BIRC3 (2.5  \cite{Baliakas2015}, 19.7 \cite{Alhourani2016}) \\
+BRAF (3.7  \cite{Landau2015}, 2.8  \cite{Puente2015, Jebaraj2013}) & CHD2 (5.3  \cite{Rodriguez2015}, 4.8  \cite{Quesada2011, Landau2015}) \\ CXCR4 (OE \cite{Ghobrial2004, Mohle1999, Barretina2003, Crowther-Swanepoel2009}) & DDX3X (1.03  \cite{Rubio-Perez2015}, 2.4  \cite{Wang2011}, 1.72 \cite{Ojha2015}) \\
+EGR2 (3.8  \cite{Young2017, Landau2015}) & FBXW7 (1.03 \cite{Rubio-Perez2015}, 2.5  \cite{Wang2011, Jeromin2014}) \\ IRF4 (1.5  \cite{Puente2015, Havelange2011}) & MYD88 (2.2  \cite{Baliakas2015}, 4  \cite{Martinez-Trillos2016}, 8  \cite{Wang2011}, 5.17  \cite{Rubio-Perez2015, Jeromin2014}) \\
+PAX5 \cite{Puente2015} & NOTCH1 (3.1  \cite{Rubio-Perez2015}, 4  \cite{Wang2011}, 8  \cite{Baliakas2015}, 11.3 \cite{Rossi2012, Young2017, Jeromin2014}) \\ SAMHD1 (11  \cite{Clifford2014, Rossi2014}) & SF3B1 (11.2  \cite{Baliakas2015}, 15  \cite{Wang2011}, 7.93  \cite{Rubio-Perez2015, Wang2011, Jeromin2014}) \\
+SYK (OE \cite{Buchner2009, Baudot2009, Hoellenriegel2012}) & TP53 (10.4  \cite{Baliakas2015}, 15  \cite{Wang2011}, 7.1  \cite{Jeromin2014}, 8.62  \cite{Rubio-Perez2015}) \\ XPO1 (2.76 \cite{Rubio-Perez2015}, 3.4  \cite{Jeromin2014}) & ZAP70 (OE \cite{Wiestner2003, Chen2002}) \\
+\hline
+\multicolumn{2}{l}{{\bf Lower Grade Glioma (LGG)}}\\ \hline
+ARID1A (11  \cite{Sausen2013}, 5.92  \cite{Rubio-Perez2015}) & ARID1B (11  \cite{Sausen2013}, 2.37  \cite{Rubio-Perez2015}) \\ ATRX (42.6  \cite{Wiestler2013, Jiao2012}) & BRAF (15  \cite{Dahiya2014} , 1.85  \cite{McLendonR2008, Knobbe2004}) \\
+CIC (20.12  \cite{Jiao2012}) & EGFR (OE \cite{Toth2009}, A \cite{Mukasa2010}, 23.22 \cite{McLendonR2008}, 4.14  \cite{Rubio-Perez2015}) \\ FUBP1 (10.65  \cite{Baumgarten2014}) & IDH1 (77.51  \cite{Parsons2008, Cohen2013}) \\
+IDH2 (3.55  \cite{Cohen2013}) & NF1 (5.92  \cite{Parsons2008, McLendonR2008, Rubio-Perez2015}) \\ NOTCH1 (7.69 \cite{Rubio-Perez2015} , OE \cite{Xu2013}) & PIK3CA (6.51  \cite{Rubio-Perez2015}, 10.03  \cite{McLendonR2008, Parsons2008, Gallia2006, Kita2007}) \\
+PDGFRA \cite{Ozawa2010, Chakravarty2017} & PIK3R1 (5.92  \cite{McLendonR2008, Parsons2008, Quayle2012, Rubio-Perez2015}) \\ PTEN (4.14  \cite{Rubio-Perez2015}, 30.34  \cite{McLendonR2008, Parsons2008}) & RB1 (1.78  \cite{McLendonR2008, Parsons2008, Rubio-Perez2015}) \\
+SOX9 (OE\cite{Wang2012, Gao2015}) & TCF12 (3.55  \cite{Labreche2015}) \\ TP53 (50.89 \cite{Rubio-Perez2015}, 30.61 \cite{McLendonR2008, Parsons2008}) & \\ \hline
+\multicolumn{2}{l}{{\bf Colorectal Cancer (CRC)}}\\ \hline
+APC (79.04 \cite{CancerGenomAtlas2012} ) & BRAF (16 \cite{Berg2010}, 4.7 \cite{DeRoock2010}, 3 \cite{Mao2015, CancerGenomAtlas2012}) \\ EGFR (12-22 \cite{Zhang2008a, Oh2011, Gross1991} ) & KRAS (40 \cite{DeRoock2010}, 43 \cite{Berg2010, Bos1987, CancerGenomAtlas2012, Mao2015}) \\
+FBXW7 (10 \cite{CancerGenomAtlas2012} ) & PIK3CA (14.5 \cite{DeRoock2010}, 15 \cite{CancerGenomAtlas2012, Mao2015, Hao2016, Berg2010}) \\ SMAD2 (3.4 \cite{Roper2013, CancerGenomAtlas2012} ) & PTEN (14 \cite{Berg2010}, 4 \cite{DeRoock2010, Ngeow2013, Molinari2013, Mao2015, CancerGenomAtlas2012}) \\
+SMAD3 (4.3 \cite{Roper2013, CancerGenomAtlas2012} ) & SMAD4 (8.6 \cite{Roper2013, Miyaki1999, CancerGenomAtlas2012}) \\ SOX9 (3.49 \cite{Rubio-Perez2015}, 4 \cite{Lu2008, CancerGenomAtlas2012}) & TCF7L2 (9.17 \cite{Rubio-Perez2015, Folsom2008}, 12 \cite{CancerGenomAtlas2012}) \\
+TGFBR2 (3.49 \cite{Rubio-Perez2015}, 2 \cite{Xu2007, CancerGenomAtlas2012}) & TP53 (59 \cite{CancerGenomAtlas2012}) \\ \hline
+\multicolumn{2}{l}{{\bf Papillary Thyroid Cancer (PTC)}}\\ \hline
+AKT1 (15 \cite{Xing2013} ) & ALK (10 \cite{Xing2013} ) \\ ARID1B (1 \cite{Agrawal2014}\, \cite{Landa2016} ) & BRAF (35.8 \cite{Kimura2003}, 56.52 \cite{Rubio-Perez2015} ) \\
+CTNNB1 (25 \cite{Xing2013} ) & EGFR (5 \cite{Xing2013} ) \\ EIF1AX (1.5 \cite{Agrawal2014, Yoo2016} ) & HRAS (20-40 \cite{Xing2013, Howell2013} ) \\
+KMT2C (1 \cite{Agrawal2014}\, \cite{Landa2016} ) & KRAS (20-40 \cite{Xing2013, Howell2013} ) \\ NDUFA13 (15 \cite{Xing2013} ) & NRAS (20-40 \cite{Xing2013}, 8.07 \cite{Rubio-Perez2015, Howell2013} ) \\
+PIK3CA (1–2 \cite{Xing2013} ) & PTEN (4.8 \cite{Nagy2011, Xing2013} ) \\ TG (2.7 \cite{Agrawal2014} ) & TP53 (25 \cite{Xing2013} ) \\
+ZFHX3 (1.7 \cite{Agrawal2014} ) & \\
+\bottomrule
+\end{tabular}
+\begin{flushleft} Numbers in the brackets represent the expression (OE stands for overexpression) or mutation (A: amplification, number: percentage of mutation rate) of the gene. 
+\end{flushleft}
+\end{table}
+
+\clearpage
+\bibliographystyle{naturemag}
+\bibliography{literature}
+\end{document}
