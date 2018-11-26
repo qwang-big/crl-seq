@@ -105,24 +105,24 @@ ggplot() + geom_line(data=sp(df[,1:9]), aes(perc, value, col=type), size=1) +
 v=lapply(strsplit(readLines("ARCHS4_Tissues.txt"),"\t"), function(d) d[3:length(d)])
 names(v)=lapply(strsplit(readLines("ARCHS4_Tissues.txt"),"\t"), function(d) d[1])
 auc=lapply(data, function(d){
-unlist(lapply(v, function(a) getAUC(d$pg$PC1,a)))
+unlist(lapply(v, function(a) getAUC(d$pg$PC1,a)-getAUC(d$pg$prom,a)))
 })
 names(auc)=nm
 auc=data.frame(auc)
 auc=melt(as.matrix(auc))
 names(auc)=c("Tissues","Cases","AUC")
-ggplot(data = auc, aes(x=Cases, y=Tissues, fill=AUC)) +theme(axis.text.x = element_text(angle = 30, hjust = 1))+ geom_tile() + scale_fill_gradient(low = "white", high = "red")
+auc$Cases = factor(as.character(auc$Cases), levels = c("ALL", "AML", "CLL", "mCLL", "MCL", "MM", "CRC", "LGG", "PTC", "MES", "MSC", "NPC", "TSC"))
+ggplot(data = auc, aes(x=Cases, y=Tissues, fill=AUC)) +theme(axis.text.x = element_text(angle = 30, hjust = 1))+ geom_tile() + scale_fill_gradient2(low = "blue", mid = "white", high = "red")
 ```
 ### Rewiring
 ```{r}
 k=c(3,4,5,7,10,11,12,13)
 df=do.call("rbind",lapply(k, function(i){
-quantile(unlist(lapply(1:100, function(d) getAUC(pageRank(data[[i]]$gr[,c("id","PC1")], H1, rewire=TRUE)$PC1, markers[[nm[i]]]))))
+data.frame(auc=unlist(lapply(1:100, function(d) getAUC(pageRank(data[[i]]$gr[,c("id","PC1")], H1, rewire=TRUE)$PC1, markers[[nm[i]]]))), type=nm[i])
 }))
-df=cbind(df,do.call("rbind",lapply(k, function(i){data[[i]]$auc[c("PC1","prom")]})))
-colnames(df)=c(paste0("q",0:4),"Irene","Promoter")
-dname=function(i) nm[k[i]]
-ggplot(data.frame(df,type=1:8), aes(type))+geom_ribbon(aes(ymin = q1, ymax = q3), fill = "grey70") + geom_line(aes(y = Irene), color="red")+ geom_line(aes(y = Promoter), color="red", linetype="dashed")+ scale_x_continuous(breaks=1:8,label=dname) +theme(axis.text.x = element_text(angle = 30, hjust = 1))+ labs(x="",y="AUC")
+df1=data.frame(auc=unlist(lapply(k, function(i){getAUC(data[[i]]$pg$PC1, markers[[nm[i]]])})), type=nm[k])
+df2=data.frame(auc=unlist(lapply(k, function(i){getAUC(data[[i]]$pg$prom,markers[[nm[i]]])})), type=nm[k])
+ggplot() + geom_boxplot(data=df, aes(type, auc),outlier.size = NA) + geom_point(data=df1, aes(type, auc),size=4,shape=20,col="red") + geom_point(data=df2, aes(type, auc),size=4,shape=18,col="red") + labs(x="Test cases",y="AUC") + theme(axis.text.x = element_text(angle = 30, hjust = 1))
 write.table(df,file="irene-supp/AUC/rnd.txt",sep="\t",quote=F)
 ```
 ### Well-known oncogenes
