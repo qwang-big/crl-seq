@@ -122,7 +122,7 @@ data.frame(auc=unlist(lapply(1:100, function(d) getAUC(pageRank(data[[i]]$gr[,c(
 }))
 df1=data.frame(auc=unlist(lapply(k, function(i){getAUC(data[[i]]$pg$PC1, markers[[nm[i]]])})), type=nm[k])
 df2=data.frame(auc=unlist(lapply(k, function(i){getAUC(data[[i]]$pg$prom,markers[[nm[i]]])})), type=nm[k])
-ggplot() + geom_boxplot(data=df, aes(type, auc),outlier.size = NA) + geom_point(data=df1, aes(type, auc),size=4,shape=20,col="red") + geom_point(data=df2, aes(type, auc),size=4,shape=18,col="red") + labs(x="Test cases",y="AUC") + theme(axis.text.x = element_text(angle = 30, hjust = 1))
+ggplot() + geom_boxplot(data=df, aes(type, auc),outlier.size = NA) + geom_point(data=df1, aes(type, auc),size=4,shape=19,col="red") + geom_point(data=df2, aes(type, auc),size=4,shape=18,col="red") + labs(x="Test cases",y="AUC") + theme(axis.text.x = element_text(angle = 30, hjust = 1))
 write.table(df,file="irene-supp/AUC/rnd.txt",sep="\t",quote=F)
 ```
 ### Well-known oncogenes
