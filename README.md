@@ -94,7 +94,7 @@ sp=function(x) {x=melt(x);colnames(x)=c("type","perc","value");x$type=nm[cl=="Ca
 dname=function(i) seq(10,50,5)[i]
 df=do.call("rbind",lapply(which(cl=="Cancer"), function(i){
 c(unlist(lapply(seq(0.9,0.5,-0.05),function(w) lf(vg(exportMultinets(edgeRank(data[[i]]$pg$PC1,hprd, cutoff=w), 15)) %in% og))),
-unlist(lapply(seq(1788,8944,894),function(w) lf(data[[i]]$pg$PC1[1:w] %in% og))))
+unlist(lapply(seq(580,2250,185),function(w) lf(data[[i]]$pg$PC1[1:w] %in% og))))
 }))
 ggplot() + geom_line(data=sp(df[,1:9]), aes(perc, value, col=type), size=1) +
   geom_line(data=sp(df[,10:18]), aes(perc, value, col=type), linetype="dotted", size=1) +
