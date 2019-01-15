@@ -145,7 +145,8 @@ genes=c("BRAF","EGFR","KRAS","MYC","PAX5","PTEN","TP53")
 df=do.call("rbind",lapply(c(1:7,9,12), function(i){
 df=data.frame(Irene=match(genes,rev(data[[i]]$pg$PC1)),Promoter=match(genes,rev(data[[i]]$pg$prom)),gene=genes,type=nm[i])
 }))
-ggplot(df, aes(x=Irene, y=Promoter)) +geom_point(aes(col=gene))+facet_wrap(~type) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+geom_text(aes(label=gene), size=2.5,vjust=1)+theme(axis.ticks=element_blank(),legend.position="none")
+pos1=function(d) as.integer(d/17888)
+ggplot(df, aes(x=Irene, y=Promoter)) +geom_point(aes(col=gene))+facet_wrap(~type) +geom_abline(slope=1,linetype="dashed")+ xlim(c(0, 17888))+ylim(c(0, 17888))+geom_text(aes(label=gene), size=2.5,vjust=1)+theme(axis.ticks=element_blank(),legend.position="none")+scale_x_continuous(label=pos1,breaks=c(0, 17888))+scale_y_continuous(label=pos1,breaks=c(0, 17888))
 ```
 
 # Plot figures for the dissertation
